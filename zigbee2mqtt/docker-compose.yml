@@ -1,0 +1,16 @@
+version: '3.3'
+
+services:
+    zigbee2mqtt:
+      image: koenkk/zigbee2mqtt:latest
+      volumes:
+        - /home/gmarfjan/docker/zigbee2mqtt:/app/data
+      restart: always
+      devices:
+        - /dev/ttyACM0
+      logging:
+        driver: "json-file"
+        options:
+          max-file: "2"
+          max-size: "100m"
+

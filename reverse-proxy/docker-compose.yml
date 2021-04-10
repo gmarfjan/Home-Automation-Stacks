@@ -1,0 +1,17 @@
+version: '3.3'
+
+services:
+    nginx:
+      image: nginx:latest
+      volumes:
+        - /home/gmarfjan/docker/reverse_proxy:/etc/nginx/conf.d
+        - /home/gmarfjan/docker/certbot:/etc/letsencrypt
+      restart: always
+      ports:
+        - 8443:443
+      logging:
+        driver: "json-file"
+        options:
+          max-file: "2"
+          max-size: "100m"
+

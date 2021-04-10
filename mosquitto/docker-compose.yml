@@ -1,0 +1,18 @@
+version: '3.3'
+
+services:
+    mosquitto:
+      image: eclipse-mosquitto:latest
+      volumes:
+        - /home/gmarfjan/docker/mosquitto/data:/mosquitto/data
+        - /home/gmarfjan/docker/mosquitto/config:/mosquitto/config
+        - /home/gmarfjan/docker/mosquitto/log:/mosquitto/log
+      restart: always
+      ports:
+        - 1883:1883
+      logging:
+        driver: "json-file"
+        options:
+          max-file: "2"
+          max-size: "100m"
+

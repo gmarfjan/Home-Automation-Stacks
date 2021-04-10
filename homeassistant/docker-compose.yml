@@ -1,0 +1,19 @@
+version: '3.3'
+
+services:
+  home-assistant:
+      image: homeassistant/home-assistant:stable
+      volumes:
+        - /home/gmarfjan/docker/homeassistant:/config
+        - /etc/localtime:/etc/localtime:ro
+      restart: always
+      ports:
+        - 8123:8123
+      environment:
+        TZ: "Europe/Paris"
+      network_mode: "host"
+      logging:
+        driver: "json-file"
+        options:
+          max-file: "2"
+          max-size: "100m"
