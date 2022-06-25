@@ -4,8 +4,8 @@ services:
     nginx:
       image: nginx:latest
       volumes:
-        - /home/gmarfjan/docker/reverse_proxy:/etc/nginx/conf.d
-        - /home/gmarfjan/docker/certbot:/etc/letsencrypt
+        - /path/to/home_dir:/etc/nginx/conf.d
+        - /path/to/cert_dir:/etc/letsencrypt
       restart: always
       ports:
         - 8443:443
@@ -14,4 +14,3 @@ services:
         options:
           max-file: "2"
           max-size: "100m"
-

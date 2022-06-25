@@ -4,10 +4,10 @@ services:
     zigbee2mqtt:
       image: koenkk/zigbee2mqtt:latest
       volumes:
-        - /home/gmarfjan/docker/zigbee2mqtt:/app/data
+        - /path/to/home_dir:/app/data
       restart: always
       devices:
-        - /dev/ttyACM0
+        - /path/to/device:/dev/zigbee
       logging:
         driver: "json-file"
         options:
