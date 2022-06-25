@@ -5,6 +5,9 @@ services:
       image: koenkk/zigbee2mqtt:latest
       volumes:
         - /path/to/home_dir:/app/data
+        - /run/udev:/run/udev:ro
+      environment:
+        - TZ=Europe/Paris
       restart: always
       devices:
         - /path/to/device:/dev/zigbee
@@ -13,4 +16,4 @@ services:
         options:
           max-file: "2"
           max-size: "100m"
-
+      user: 1000:dialout
