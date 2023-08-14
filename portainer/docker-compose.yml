@@ -1,0 +1,18 @@
+version: '3.3'
+
+services:
+    motioneye:
+      image: portainer/portainer-ce:latest
+      container_name: portainer
+      volumes:
+        - ${DOCKER_SOCKET}:/var/run/docker.sock
+        - ${DATA_DIR}:/data
+      restart: always
+      ports:
+        - ${PORT}:9000
+      network_mode: "bridge"
+      logging:
+        driver: "json-file"
+        options:
+          max-file: "2"
+          max-size: "100m"

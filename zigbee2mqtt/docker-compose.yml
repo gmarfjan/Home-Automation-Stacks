@@ -18,3 +18,5 @@ services:
         max-file: "2"
         max-size: "100m"
     network_mode: "bridge"
+    ports:
+      - "${PORT}:8080"
