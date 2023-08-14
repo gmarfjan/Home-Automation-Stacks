@@ -1,14 +1,15 @@
 version: '3.3'
 
 services:
-    motioneyes:
+    motioneye:
       image: ccrisan/motioneye:master-amd64
+      container_name: motioneye
       volumes:
-        - /path/to/home_dir/conf:/etc/motioneye
-        - /path/to/home_dir/data:/var/lib/motioneye
+        - ${CONF_DIR}:/etc/motioneye
+        - ${DATA_DIR}:/var/lib/motioneye
       restart: always
       ports:
-        - 8765:8765
+        - ${PORT}:8765
       network_mode: "host"
       logging:
         driver: "json-file"

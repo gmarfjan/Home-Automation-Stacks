@@ -10,7 +10,7 @@ services:
         - ${HOME_DIR}/log:/mosquitto/log
       restart: always
       ports:
-        - 1883:1883
+        - ${PORT}:1883
       logging:
         driver: "json-file"
         options:
