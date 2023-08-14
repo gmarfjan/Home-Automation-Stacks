@@ -3,13 +3,14 @@ version: '3.3'
 services:
     mosquitto:
       image: eclipse-mosquitto:latest
+      container_name: mosquitto
       volumes:
-        - /path/to/home_dir/data:/mosquitto/data
-        - /path/to/home_dir/config:/mosquitto/config
-        - /path/to/home_dir/log:/mosquitto/log
+        - ${HOME_DIR}/data:/mosquitto/data
+        - ${HOME_DIR}/config:/mosquitto/config
+        - ${HOME_DIR}/log:/mosquitto/log
       restart: always
       ports:
-        - 1883:1883
+        - ${PORT}:1883
       logging:
         driver: "json-file"
         options:

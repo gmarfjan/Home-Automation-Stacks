@@ -1,19 +1,20 @@
 version: '3.3'
 
 services:
-    zigbee2mqtt:
-      image: koenkk/zigbee2mqtt:latest
-      volumes:
-        - /path/to/home_dir:/app/data
-        - /run/udev:/run/udev:ro
-      environment:
-        - TZ=Europe/Paris
-      restart: always
-      devices:
-        - /path/to/device:/dev/zigbee
-      logging:
-        driver: "json-file"
-        options:
-          max-file: "2"
-          max-size: "100m"
-      user: 1000:dialout
+  zigbee2mqtt:
+    image: koenkk/zigbee2mqtt:latest
+    container_name: zigbee2mqtt
+    volumes:
+      - ${DATA_DIR}:/app/data
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      TZ: 'Europe/Paris'
+    restart: always
+    devices:
+      - ${DEVICE_DIR}:/dev/zigbee
+    logging:
+      driver: "json-file"
+      options:
+        max-file: "2"
+        max-size: "100m"
+    network_mode: "bridge"

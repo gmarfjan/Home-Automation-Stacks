@@ -1,5 +1,6 @@
 # Mosquitto
 
-Please change values in the docker-compose.yml file:
+Please use the environment variables:
 
-* /path/to/home_dir: directory where configuration files are stored
+* HOME_DIR: directory where configuration files are stored
+* PORT: port which will be exposed
