@@ -3,6 +3,7 @@ version: '3.3'
 services:
     mosquitto:
       image: eclipse-mosquitto:latest
+      container_name: mosquitto
       volumes:
         - ${HOME_DIR}/data:/mosquitto/data
         - ${HOME_DIR}/config:/mosquitto/config

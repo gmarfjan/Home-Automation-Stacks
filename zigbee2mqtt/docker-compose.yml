@@ -3,6 +3,7 @@ version: '3.3'
 services:
   zigbee2mqtt:
     image: koenkk/zigbee2mqtt:latest
+    container_name: zigbee2mqtt
     volumes:
       - ${DATA_DIR}:/app/data
       - /etc/localtime:/etc/localtime:ro
